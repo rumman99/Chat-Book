@@ -2,12 +2,13 @@ const mongoose= require("mongoose");
 
 const userSchema= mongoose.Schema({
     name:{
-        true: String,
+        type: String,
         required: true
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,
@@ -15,7 +16,6 @@ const userSchema= mongoose.Schema({
     },
     image: {
         type: String,
-        required: true,
         default: 'https://cdn.pixabay.com/photo/2016/11/08/15/21/user-1808597_960_720.png'
     }
 },

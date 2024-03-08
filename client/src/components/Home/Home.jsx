@@ -1,14 +1,15 @@
-import {Box, Container, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react';
+import {Box, Container, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import img from '../../assets/logo.png'
 
 const Home = () => {
 
     return (
         <Container maxW="xl" centerContent>
             <Box d='flex'
-            justifyContent="center" p={3} bg={"blue.100"} w="100%" m='40px 0 10px 0' borderRadius='lg' borderWidth='1px'>
-                <Text fontSize={'4xl'} fontFamily={'Work Sans'} textAlign={'Center'} color={'black'}>My Chat App</Text>
+            justifyContent="center" p={3} bg={'blue.100'} w="100%" m='40px 0 10px 0' borderRadius='lg' borderWidth='1px'>
+                <img style={{height:'80px', margin: 'auto'}} src={img} />
             </Box>
 
             <Box bg={"white"} w={'100%'} p={4} borderRadius='lg' borderWidth={'1px'} textAlign={'Center'} fontFamily={'Work Sans'} color={'black'}>
