@@ -2,6 +2,7 @@ const express= require("express");
 const cors= require("cors");
 const connectDB = require("./config/db");
 const userRouter = require("./routes/userRoutes");
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 require('dotenv').config();
 const PORT= process.env.PORT || 3333;
 
@@ -15,13 +16,8 @@ connectDB();
 // Routes //
 app.use('/', userRouter);
 
-// app.get('/api/chat', (req, res)=>{
-//     res.send('chat')
-// });
-
-// app.get('/api/chat/:id', (req, res)=>{
-//     res.send('id')
-// });
-
+// Api Routes Error Handle //
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT, console.log(`Listening on PORT ${PORT}`));

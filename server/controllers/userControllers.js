@@ -2,6 +2,7 @@ const asyncHandler= require('express-async-handler');
 const userModel= require('../models/userModel');
 const usersToken = require('../config/userToken');
 
+// Handle Register New User //
 const registerUser = asyncHandler(async(req, res)=>{
     const {name, email, password, photo}= req.body;
 
@@ -30,4 +31,20 @@ const registerUser = asyncHandler(async(req, res)=>{
     }
 });
 
-module.exports= registerUser;
+// Handle Login Existed User //
+    const loginUser= asyncHandler(async(req, res)=>{
+        const {email, password}= req.body;
+
+        /// Finding Existing User in DB ////
+        const existedUser= await userModel.findOne({email});
+
+        if(existedUser && await (existedUser.compareLoginPassword(password))){
+            res.status(200).json({_id: existedUser._id, name: existedUser.name, email: existedUser.email, photo: existedUser.photo, token: usersToken(existedUser._id)});
+        }
+        else{
+            res.status(401);
+            throw new Error("Invalid Email or Password");
+        }
+    })
+
+module.exports= {registerUser, loginUser};
