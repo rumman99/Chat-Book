@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Register = () => {
     const [showPass, setShowPass]= useState(false);
     const [userDetails, setUserDetails]= useState({});
-    const [file, setFile]= useState('')
+    const [file, setFile]= useState('https://cdn.pixabay.com/photo/2016/11/08/15/21/user-1808597_960_720.png')
     const [passError, setPassError]= useState('')
     const [loading, setLoading]= useState(false);
     const toast = useToast()
