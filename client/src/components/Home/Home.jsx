@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <Container maxW="xl" centerContent>
             <Box d='flex'
-            justifyContent="center" p={3} bg={'blue.100'} w="100%" m='40px 0 10px 0' borderRadius='lg' borderWidth='1px'>
+            justifyContent="center" p={3} bg={"blue.100"} w="100%" m='40px 0 10px 0' borderRadius='lg' borderWidth='1px'>
                 <img style={{height:'80px', margin: 'auto'}} src={img} />
             </Box>
 

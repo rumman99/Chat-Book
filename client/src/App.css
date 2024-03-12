@@ -4,6 +4,5 @@
   min-height: 100vh;
   display: flex;
   background-image: url('../src/assets/bg.jpg');
-  background-position: center;
   background-size: cover;
 }

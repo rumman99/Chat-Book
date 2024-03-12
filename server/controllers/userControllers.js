@@ -31,7 +31,7 @@ const registerUser = asyncHandler(async(req, res)=>{
     }
 });
 
-// Handle Login Existed User //
+    // Handle Login Existed User //
     const loginUser= asyncHandler(async(req, res)=>{
         const {email, password}= req.body;
 
@@ -47,7 +47,7 @@ const registerUser = asyncHandler(async(req, res)=>{
         }
     })
 
-// Get All User //
+// Get All User by Search//
 const allUser= asyncHandler(async(req, res)=>{
     let searchQuery;
 
