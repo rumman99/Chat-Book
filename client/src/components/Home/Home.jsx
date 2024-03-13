@@ -2,8 +2,20 @@ import {Box, Container, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import img from '../../assets/logo.png'
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Home = () => {
+    // Checking user Login or Not //
+    const navigate= useNavigate();
+
+    useEffect(()=>{
+        const userDetails= JSON.parse(sessionStorage.getItem("user"));
+
+        if(userDetails){
+            navigate('chats')
+        }
+    },[navigate])
 
     return (
         <Container maxW="xl" centerContent>
