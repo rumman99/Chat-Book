@@ -1,5 +1,5 @@
 import { ViewIcon } from '@chakra-ui/icons';
-import { Button, IconButton, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from '@chakra-ui/react';
+import { Button, IconButton, Image, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from '@chakra-ui/react';
 import React from 'react';
 
 const ProfileModal = ({user, children}) => {
@@ -20,7 +20,9 @@ const ProfileModal = ({user, children}) => {
                     fontSize={{base: '24px', md: '40px'}}
                     fontFamily={'Work sans'}
                     textAlign={'center'}
-                >{user.name}</ModalHeader>
+                    >
+                    {user.name}
+                </ModalHeader>
 
                 <ModalBody 
                     display={'flex'}

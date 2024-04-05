@@ -8,7 +8,7 @@ const router= express.Router();
 router.route('/').post(authorize, createChat);
 
 // Find all Chat //
-router.route('/').get(authorize, allChat);
+router.route('/allChat').get(authorize, allChat);
 
 // Create Group //
 router.route('/group').post(authorize, createGroupChat);

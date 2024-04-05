@@ -58,13 +58,16 @@ const allUser= asyncHandler(async(req, res)=>{
             {email: { $regex:search, $options: "i" }}
         ]}
     }
-    else{
-        {};
+
+    try{
+        const searchUser= await userModel.find(searchQuery).find({_id: {$ne: req.user._id}})
+
+        res.status(200).send(searchUser);
     }
-
-    const searchUser= await userModel.find(searchQuery).find({_id: {$ne: req.user._id}})
-
-    res.status(200).send(searchUser);
+    catch(err){
+        res.status(500).send({ error: "User Not Found" });
+    }
+    
 })
 
 module.exports= {registerUser, loginUser, allUser};
