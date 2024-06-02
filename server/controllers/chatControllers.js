@@ -33,7 +33,7 @@ const createChat= asyncHandler(async(req, res)=>{
             const createdChat= await chatModel.create(chatData);
             const findChat= await chatModel.findOne({_id: createdChat._id})
                 .populate('users', '-password');
-
+                
             res.status(200).send(findChat);
         }
         catch(err){

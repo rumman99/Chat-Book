@@ -31,21 +31,21 @@ const registerUser = asyncHandler(async(req, res)=>{
     }
 });
 
-    // Handle Login Existed User //
-    const loginUser= asyncHandler(async(req, res)=>{
-        const {email, password}= req.body;
+// Handle Login Existed User //
+const loginUser= asyncHandler(async(req, res)=>{
+    const {email, password}= req.body;
 
-        /// Finding Existing User in DB ////
-        const existedUser= await userModel.findOne({email});
+    /// Finding Existing User in DB ////
+    const existedUser= await userModel.findOne({email});
 
-        if(existedUser && await (existedUser.compareLoginPassword(password))){
-            res.status(200).json({_id: existedUser._id, name: existedUser.name, email: existedUser.email, photo: existedUser.photo, token: usersToken(existedUser._id)});
-        }
-        else{
-            res.status(401);
-            throw new Error("Invalid Email or Password");
-        }
-    })
+    if(existedUser && await (existedUser.compareLoginPassword(password))){
+        res.status(200).json({_id: existedUser._id, name: existedUser.name, email: existedUser.email, photo: existedUser.photo, token: usersToken(existedUser._id)});
+    }
+    else{
+        res.status(401);
+        throw new Error("Invalid Email or Password");
+    }
+})
 
 // Get All User by Search//
 const allUser= asyncHandler(async(req, res)=>{
